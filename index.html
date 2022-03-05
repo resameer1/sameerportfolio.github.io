@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	
+	<!-- LINKS -->
+	<link rel="icon" type="image/x-icon" href="https://i.imgur.com/GezPsYT.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Scripts -->
+	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	
+
+	<style type="text/css">
+		*{
+    padding: 0;
+    margin: 0;
+    
+    
+}
+html{
+    scroll-behavior: smooth;
+    
+}
+body{
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    color: rgb(97, 97, 97);
+    transition: all 1s;
+    
+}
+.dark-mode{
+    /* background-color: #151D3B; */
+    background-color: #141518;
+    color: white;
+    transition: all 1s;
+    
+}
+                                                                        /* NAVBAR SECTION */
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: #34373C;
+    position: fixed;
+    z-index: 1;
+
+}
+.navbar__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    
+}
+.navbar__left {
+    display: flex;
+}
+.navbar__wrapper > .navbar__left > a  {
+    font-size:20px;
+    font-family: sans-serif;
+    color: #6EBF8B;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.navbar__wrapper > .navbar__left > nav > ul {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    
+    
+    
+}
+.navbar__wrapper .navbar__left > nav > ul > li {
+    cursor: pointer;
+    
+}
+.navbar__wrapper > .navbar__left > nav > ul > li > a {
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+   
+}
+.navbar__wrapper> .navbar__left > nav > ul > li > a:hover {
+    border-bottom: 2px solid white;
+}
+.navbar__right {
+    
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar__wrapper > .navbar__right > .menu {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgba(253, 253, 253, 0.25);
+    border-radius: 5px;
+    display: none;
+}
+.navbar__wrapper > .navbar__right > button{
+    padding: 10px 30px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #ad8502;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+#d-n{
+    color: #ffffff;
+}
+                                                                    /* SIDE MENU SECTION */
+.side__menu{
+    height: 100vh;
+    width: 40vh;
+    transition: all 2s;
+    z-index: 2;
+    background-color:#151D3B;
+    right: 0;
+    top: 0;
+    display: none;
+    position: fixed;
+    
+}
+.side__menu > img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    right: 0;
+    top: 0;
+    margin: 20px;
+    position: absolute;
+}
+.side__menu > nav > ul {
+    list-style: none;
+    display: block;
+    margin: 50px 20px;
+}
+.side__menu > nav > ul >li{
+    padding: 20px;
+    cursor: pointer;
+}
+.side__menu > nav > ul >li > a {
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.side__menu > nav > ul >li > a:active {
+    color: #151D3B;
+}
+                                                                        /* INTRO SECTION */
+
+.intro{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+
+}
+.intro__wrapper{
+    display: flex;
+    width: 100%;
+    padding: 40px 70px;
+
+}
+ .intro__left {
+    width: 50%;
+    margin: auto;
+
+}
+.intro__wrapper >.intro__left > img {
+    width: 500px;
+    height: auto;
+    border-radius: 30% 70% 62% 38% / 30% 30% 70% 70% ;
+    border: 10px solid #6EBF8B;
+    
+    -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+ .intro__right{
+    width: 50%;
+    margin: auto;
+   
+}
+.intro__right > h3 {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 400;
+    /* color: aliceblue; */
+}
+.intro__right > h1 {
+    font-size:10vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    color: #6EBF8B;
+    -webkit-text-stroke: 1px #f6f6f6;
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+.intro__right > p {
+    width: 100%;
+    margin-top: -20px;
+    font-size: 8vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    color: #ad8502;
+    letter-spacing: 10pt;
+    padding: 20px;
+}
+
+
+                                                                        /* ABOUT SECTION */
+
+.about{
+    width: 100%;
+    height: 100vh;
+
+    
+}
+.about >h1{
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+
+    padding: 30px 0px;
+    
+}
+.about__wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+
+}
+.about__left{
+    width: 100%;
+    margin: auto;
+    padding: 20px 50px;
+    -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+    
+}
+.about__left > h1{
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    color: #6EBF8B;
+    text-align: center;
+}
+.about__left > p {
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    /* color: aliceblue; */
+    text-align: center;
+    line-height: 20pt;
+    
+}
+.about__left > .about__btn {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 20px;
+    
+}
+.about__left > .about__btn > a {
+    color: #ad8502;
+    text-decoration: none;
+    border: 1px solid #dd9e17;
+    padding: 10px 30px;
+}
+.about__left > .about__btn > a:hover{
+    background-color: #ad8502;
+    color: #f6f6f6;
+}
+
+
+.about__right{
+    width: 100%;
+    margin: auto;
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.about__right > img {
+    width: 500px;
+    height: auto;
+    
+}
+                                                                    /* SERVICE SECTION */
+.service{
+    width: 100%;
+    height: 100vh;
+}
+.service > h1 {
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    /* color: #6EBF8B; */
+    padding: 30px 0px;
+}
+.service__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 50px;
+
+}
+.service__card{
+    width:  17vw;
+    height: 50vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border: 1px solid white;
+}
+.service__card:hover{
+
+    box-shadow:  5px 5px 10px #cacaca,
+             -5px -5px 10px #f6f6f6;
+}
+.service__card > img {
+    width: 70px;
+    padding: 70px 90px;
+}
+.service__card > h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #6EBF8B;
+}
+.service__card > p{
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+}
+                                                                    /* PORTFOLIO SECTION */
+.portfolio{
+    width: 100vw;
+    height: 100vh;
+    
+}
+.portfolio > h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    padding: 30px 0px;
+    
+}
+.portfolio__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 10px 50px;
+
+    
+    
+}
+.portfolio_row{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+
+  
+}
+
+.portfolio_row > .portfolio__content > img{
+    height: 150px;
+    width: 300px;
+    border-radius: 20px;
+    border: 2px solid white;
+    object-fit: cover;
+    filter: grayscale(50%);
+
+}
+.portfolio_row > .portfolio__content > img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+    filter: none;
+}
+.portfolio__content >h1 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+                                                                    /* CONTACT SECTION */
+.contact{
+    width: 100%;
+    height: 100vh;
+  
+}
+.contact > h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    padding: 30px 0px;
+}
+.contact__wrapper{
+    display: flex;
+    
+}
+.contact__left{
+    width: 100%;
+
+    
+}
+.contact__left > h1{
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    padding: 30px 0px;
+}
+.social__icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+
+}
+.social__icon > a {
+    cursor: pointer;
+}
+.social__icon > a > img:hover{
+    transform: scale(1.2);
+}
+.social__icon > a > img{
+   width: 45px;
+    margin: 10px;
+
+}
+.social__content{
+    display: flex;
+    
+    padding: 20px 30px;
+
+}
+.social__content >  h2 {
+    padding: 20px;
+    text-align: center;
+}
+.social__content >  #m::after{
+    content:"    samrider912@gmail.com";
+    
+    color: #6EBF8B;
+}
+.social__content >  #p::after{
+    content:"   +92303 4631716";
+    
+    color: #6EBF8B;
+}
+
+.contact__right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.contact__right > h1{
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    padding: 30px 0px;
+}
+.contact__right > form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 600px;
+    height: 50vh;
+    padding: 2vw 5vw;
+    border-radius: 20px;
+    
+
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    
+}
+.contact__right > form > input {
+    padding: 10px 20px;
+    border-radius: 99px;
+    border: none;
+    margin: 7px;
+    outline-color: #6EBF8B;
+    background-color: #ebebeb;
+}
+.contact__right > form > textarea {
+    
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ebebeb;
+    outline-color: #6EBF8B;
+}
+.contact__right > form > button {
+
+    padding: 15px;
+    background-color: #dd9e17;
+    outline: none;
+    border: 0;
+    color: #f6f6f6;
+    font-size: 20px;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
+  
+                                                                 /* RESPONSIVE  FOR TABLET*/
+@media only screen and (min-width: 1008px){
+  
+    .intro__wrapper{
+        display: flex;
+        
+        
+
+    }
+    .intro__wrapper >.intro__left > img{
+        width: 100%;
+        max-width: 60vmin;
+        
+    }
+    .intro__wrapper > .intro__right > h1{
+        font-size: 12vw;
+        
+    }
+    .intro__wrapper > .intro__right > p{
+        font-size: 2vmax;
+        letter-spacing: 10px;
+    }
+
+}
+                                                                    /* RESPONSIVE WIDE SCREEN */
+@media only screen and (max-width: 1007px) {
+    .navbar{
+        width: 100%;
+        
+        
+    }
+    .navbar__wrapper > .navbar__right {
+        width: 20%;
+    }
+    .navbar__wrapper{
+        display: flex;
+        flex-wrap: wrap;
+   
+    }
+    .navbar__wrapper > .navbar__right >.menu{
+        display: block;
+    }
+    .navbar__wrapper .navbar__left > .nav{
+        display: none;
+    }
+    .intro__wrapper{
+        display: flexbox;
+        padding: 10px 30px;
+        
+    
+    }
+    .intro__wrapper >.intro__left > img{
+        width:300px; ;
+        height: auto;
+    }
+    .intro__wrapper > .intro__right > h1{
+        font-size: 120px;
+        
+    }
+    .intro__wrapper > .intro__right > p{
+        font-size: 15px;
+        letter-spacing: 9px;
+    }
+    .service{
+        width: 100%;
+    }
+    .service > h1 {
+        padding: 30px;
+    }
+    .service__wrapper{
+        padding-left: 30px;
+        padding-right: 30px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .service__card > img{
+        padding: 50px;
+    }
+
+
+    .portfolio{
+        width: 100%;
+        height: fit-content;
+        
+        
+    }
+    .portfolio > h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 900;
+        padding: 30px 0px;
+        
+    }
+    .portfolio__wrapper {
+     width: 100%;
+     height: auto;
+     display: block;
+    padding: 0%;
+    }
+    
+    .portfolio_row{
+        display: block;
+        columns: 2;
+        
+        
+      
+    }
+    .portfolio__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .portfolio__content > h1 {
+        padding: 10px;
+    }
+    
+    
+   
+
+  }
+                                                                        /* FOR MOBILE */
+  @media only screen and (max-width: 786px){
+      .navbar{
+          width: 100%;
+          
+      }
+      .navbar__wrapper > .navbar__right {
+        width: 40%;
+    } 
+    
+     
+ .intro{
+          width: 100%;
+      }
+    .intro__wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 90px 60px;
+    }
+    .intro__left{    
+        width: 100%;
+    }
+    .intro__right{
+        width: 100%;
+        
+    }
+    .intro__wrapper >.intro__right > h3{
+        width: 100%;
+        font-size: 50px;
+    }
+    
+    .intro__wrapper >.intro__right > h1 {
+        width: 100%;
+        font-size: 100px;
+    }
+   .intro__wrapper > .intro__right > p {
+        letter-spacing: 5px;
+        font-size: 20px;
+    }
+    .about{
+        width: 100%;
+        height: fit-content;
+    }
+    .about__wrapper{
+        display: flex;
+        flex-wrap: wrap-reverse;
+
+        padding: 0;
+    }
+    .about__left{
+        width: 100%;
+        
+       
+        
+    }
+    .about__left > h1{
+        font-size: 20px;
+        
+    }
+    .about__left > p {
+        font-size: 15px;
+        
+    }
+    .about__right{
+        width: 100%;
+        padding: 10px 50px;
+        
+    }
+    .about__right > img{
+        width: 400px;
+        
+    }
+
+    .service{
+        width: 100%;
+        height: fit-content;
+        
+
+    }
+    .service > h1 {
+        
+        font-size: 30px;
+        padding: 10px  0px;
+    }
+    .service__wrapper{
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flex;
+        columns: 2;
+    
+  
+        
+    }
+    .service__card {
+        width: 100%;
+        height: 50vh;
+        margin: 10px;
+    }
+    .service__card > img{
+        margin: auto;
+    }
+    .service__card > h1{
+        margin: auto;
+    }
+    .service__card > p{
+        margin: auto;
+    }
+
+
+
+    .portfolio{
+        width: 100%;
+        height: fit-content;
+        
+    }
+    .portfolio > h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 900;
+        padding: 30px 0px;
+        
+    }
+    .portfolio__wrapper {
+     display: flex;
+     flex-direction: column;
+     height: fit-content;
+     
+     
+   
+    }
+    
+    .portfolio_row{
+        columns: 1;
+      
+    }
+    .portfolio__content{
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .portfolio__content > h1 {
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+    .contact{
+        width: 100%;
+        height: fit-content;
+
+    }
+    .contact > h1{
+        font-size: 30px;
+    }
+  .contact__wrapper{
+      display: block;
+      width: 100%;
+  }
+  .contact__left{
+      width: 100%;
+  }
+  .contact__left > .social__content {
+      display: block;
+  }
+  .contact__right{
+      width: 100%;
+  }
+  .contact__right > form{
+      width: 80%;
+  }
+
+
+	</style>
+
+</head>
+		
+<body>
+	<div class="navbar" id="day">
+		<div class="navbar__wrapper">
+			<div class="navbar__left">
+				<a href="#home">
+				<h1>Sameer.</h1>
+			</a>
+			<nav class="nav">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#About">About</a></li>
+					<li><a href="#service">Service</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			</div>
+			<div class="navbar__right">
+				<button onclick="dark()">
+				<p id="d-n">Light🌕</p>
+				</button>
+				<img class="menu" src="photo/menu.png" alt="menu" onclick="myfunction()">	
+				</div>
+			</div>
+			
+	</div>
+	<!-- SIDE MENU SECTION -->
+	<div class="side__menu" id="sidenav">
+		<img src="photo/close.png" alt="close"  onclick="closefunction()">
+		<nav>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#About">About</a></li>
+				<li><a href="#service">Service</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- INTRO SECTION -->
+	<section class="intro"  id="home">
+		<div class="intro__wrapper">
+			<div class="intro__left">
+				<img src="https://i.imgur.com/6lMJuKr.jpg" alt="pic">
+			</div>
+			<div class="intro__right">
+				<h3>Hello, My Name Is</h3>
+				<h1>SAMEER</h1>
+				<p>I Am Designer and Developer!</p>
+				
+			</div>
+		</div>
+	</section>
+	<!-- ABOUT SECTION -->
+	<section class="about" id="About">
+		<h1>ABOUT</h1>
+		<div class="about__wrapper">
+			<div class="about__left">
+				<h1>hi, I am a web developer and Graphics Designer.<br>
+					i have 3+ years exprerice in this field.</h1>
+				<p>
+					<b>I have expertise in:</b>
+					WordPress, Shopify, Business card, flyer, Banner,YouTube SEO , Social media post design, Auto Blogging,
+					 Websites Speed Optimize, Socail Automation.
+					
+					Web Designers are responsible for designing and building the interface, navigation and aesthetic of websites
+					 for businesses and clients. Likely working in the IT team of an organisation or for a digital design agency that services clients,<br>
+					 Web Designers should possess a range of skills and qualities.
+				</p>
+				<div class="about__btn">
+					<a href="file/Sameer ul Hassan - Resume.pdf" download>Resume</a>
+					<a href="mailto:samrider912@gmail.com">Hire Me!</a>
+				</div>
+			</div>
+			<div class="about__right">
+				<img src="https://i.imgur.com/pqf80Ha.png" >
+			</div>
+		</div>
+	</section>
+	<!-- SERVICE SECTION -->
+	<section class="service" id="service">
+		<h1>SERVICE</h1>
+		<div class="service__wrapper">
+			<div class="service__card">
+				<img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/27-256.png" alt="" />
+				<h1>WordPress</h1>
+				<p>wordpress websites design and develop for your business.</p>
+			</div>
+
+			<div class="service__card">
+				<img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/shopify-256.png" alt="" />
+				<h1>Shopify</h1>
+				<p>Build Shopify E-commerce Store and start your online business.</p>
+			</div>
+
+			<div class="service__card">
+				<img src="https://cdn3.iconfinder.com/data/icons/luchesa-vol-9/128/Html-256.png" alt="" />
+				<h1>Web Design</h1>
+				<p>Build websites with Code. Html, Css, Js.</p>
+			</div>
+
+			<div class="service__card">
+				<img src="https://cdn3.iconfinder.com/data/icons/adobe-family-software/512/Adobe-01-256.png" alt="" />
+				<h1>Graphics Design</h1>
+				<p>Design Social Media Posts, Business Card, Banner , flayer , YouTube Thumbnails. </p>
+			</div>
+			
+			<div class="service__card">
+				<img src="https://cdn2.iconfinder.com/data/icons/adobe-round-1/243/adobe-round-xd-256.png" alt="" />
+				<h1>UL/UX Designer</h1>
+				<p>Design mobile and Website layout and prototype.</p>
+			</div>
+		</div>
+
+	</section>
+	<!-- PORTFOLIO SECTION -->
+<section class="portfolio" id="portfolio">
+		<h1>PORTFOLIO</h1>
+	<div class="portfolio__wrapper">
+			<div class="portfolio_row">
+					<div class="portfolio__content">
+						<img src="https://i.imgur.com/fNtKfO8.jpg" alt="portfolio image" />
+						<h1>Mustwear</h1>
+					</div>
+					<div class="portfolio__content">
+						<img src="https://i.imgur.com/l5Up9sh.png" alt="portfolio image" />
+						<h1>Estate Property</h1>
+					</div>
+					<div class="portfolio__content">
+						<img src="https://i.imgur.com/KtIyMj6.png" alt="portfolio image" />
+						<h1>Game Studio</h1>
+					</div>
+					<div class="portfolio__content">
+						<img src="https://i.imgur.com/nvFFiM3.jpg" alt="portfolio image" />
+						<h1>Ghar Real Estate</h1>
+					</div>
+				
+			</div>
+
+			<div class="portfolio_row">
+				<div class="portfolio__content">
+					<img src="https://i.imgur.com/R6AeVTR.jpg" alt="portfolio image" />
+					<h1>Pizza Shop</h1>
+				</div>
+				<div class="portfolio__content">
+					<img src="https://i.imgur.com/31e8fPx.jpg" alt="portfolio image" />
+					<h1>Bachon ki Dunya</h1>
+				</div>
+				<div class="portfolio__content">
+					<img src="https://i.imgur.com/QeEfOI6.jpg" alt="portfolio image" />
+					<h1>Solution Giving</h1>
+				</div>
+				<div class="portfolio__content">
+					<img src="https://i.imgur.com/t9aevzg.jpg" alt="portfolio image" />
+					<h1>One Table Resturent</h1>
+				</div>
+			
+			</div>
+
+		</div>
+			
+
+	</div>
+</section>
+
+	<!-- CONTACT SECTION -->
+	<section class="contact" id="contact">
+		<h1>CONTACT</h1>
+		<div class="contact__wrapper">
+			<div class="contact__left">
+				<h1>SOCIAL MEDIA</h1>
+				<div class="social__icon">
+					<a href="https://www.instagram.com/develop_solution/" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-256.png" alt="instagram" ></a>
+					<a href="https://www.facebook.com/developsolution1" target="blank"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-256.png" alt="facebook" ></a>
+					<a href="https://www.linkedin.com/in/sameer-ul-hassan1/" target="blank"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-256.png" alt="linkedin" ></a>
+					<a href="https://www.behance.net/resameer" target="blank"><img src="https://cdn1.iconfinder.com/data/icons/social-media-circle-7/512/Circled_Behance4_svg-256.png" alt="behance" ></a>
+					<a href="https://www.youtube.com/channel/UCPhYM-0fg2ooXe6RBP1LrqA" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_youtube-256.png"  alt="youtube" ></a>
+				</div>
+				<div class="social__content">
+					<h2 id="m">Email:</h2>
+					<h2 id="p">Phone No:</h2>
+				</div>
+			</div>
+			<div class="contact__right">
+				<h1>GET IN TOUCH</h1>
+				<form onsubmit="sendEmail(); reset(); return false">
+					<input type="text" id="name" placeholder="Name"  required>
+					<input type="email" id="email" placeholder="Email"  required>
+					<input type="number" id="phone" placeholder="Phone Number">
+					<textarea id="message" rows="4" placeholder="How Can We Help You?"></textarea>
+					<button type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	
+		  
+	
+	
+	<script src="script.js"></script>
+	<script type="text/javascript">
+	
+
+ 
+//   Functions
+
+function myfunction(){
+
+		var side = document.getElementById("sidenav")
+		side.style.display = "block";
+					
+}
+function dark() {
+		var d = document.getElementById("d-n")
+		var element = document.body;
+
+		element.classList.toggle("dark-mode");
+
+		if(d.innerHTML === "Light🌕"){
+				d.innerHTML = "Dark🌙";
+		}else{
+				d.innerHTML = "Light🌕";
+			}
+					
+}
+function closefunction(){
+	var side = document.getElementById("sidenav")
+
+		if(side.style.display === "block"){
+			
+            side.style.display = "none";
+						
+		}else {
+			side.style.display = "block";
+						
+		}
+
+				
+}
+
+// EMAILS SEND FUNCTION//
+
+function sendEmail(){
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "",
+    Password : "",
+    To : '',
+    From : document.getElementById("email").value,
+    Subject : "new Contact from Enquiry",
+    Body : Document.getElementById("message").value,
+}).then(
+  message => alert(message)
+);
+}
+
+	</script>
+	
+</body>
+</html>
